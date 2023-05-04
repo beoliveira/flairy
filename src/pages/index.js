@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Button from "@/components/Button";
 import Image from "next/image";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from &aposreact&apos;
 import { language_options } from "../utils/language-options";
 
 export default function Home() {
 
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(&apos&apos);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [dots, setDots] = useState(1);
-  const [buttonText, setButtonText] = useState('Write my story!');
+  const [buttonText, setButtonText] = useState(&aposWrite my story!&apos);
 
   // This function is called when the form is submitted
   async function handleSubmit(event) {
@@ -19,10 +19,10 @@ export default function Home() {
     setLoading(true); // Sets the loading state to true
 
     // Get the values of the form fields
-    const name = document.getElementById('form-name').value;
-    const age = document.getElementById('form-age').value;
-    const gender = document.getElementById('form-gender').value;
-    const setting = document.getElementById('form-setting').value;
+    const name = document.getElementById(&aposform-name&apos).value;
+    const age = document.getElementById(&aposform-age&apos).value;
+    const gender = document.getElementById(&aposform-gender&apos).value;
+    const setting = document.getElementById(&aposform-setting&apos).value;
     const language = selectedOption;
 
     // Create a data object with the form field values
@@ -38,8 +38,8 @@ export default function Home() {
 
     try {
       // Send a POST request to the server with the data
-      const response = await fetch('/api/submit', {
-        method: 'POST',
+      const response = await fetch(&apos/api/submit&apos, {
+        method: &aposPOST&apos,
         body: JSON.stringify(data),
       });
 
@@ -63,18 +63,18 @@ export default function Home() {
     let timeoutId; // Stores the ID of the timeout timer for the "Still working on it" text
 
     if (loading) { // If the loading state is true
-      const name = document.getElementById('form-name').value;
-      setButtonText('Writing a special story for ' + name); // Set the button text to "Writing a special story for {name}"
+      const name = document.getElementById(&aposform-name&apos).value;
+      setButtonText(&aposWriting a special story for &apos + name); // Set the button text to "Writing a special story for {name}"
       intervalId = setInterval(() => { // Start an interval timer to animate the dots
         setDots((dots) => (dots % 3) + 1);
       }, 500);
 
       timeoutId = setTimeout(() => { // Start a timeout timer to change the button text to "Still working on it" after 10 seconds
-        setButtonText('Still working on it');
+        setButtonText(&aposStill working on it&apos);
       }, 10000);
     } else { // If the loading state is false
       setDots(1); // Reset the dots animation to one dot
-      setButtonText('Write my story!'); // Set the button text to "Write my story!"
+      setButtonText(&aposWrite my story!&apos); // Set the button text to "Write my story!"
     }
 
     return () => { // This function is called when the component is unmounted or when the effect is run again
@@ -159,7 +159,7 @@ export default function Home() {
         <form className="grid gap-4" id="story-form" onSubmit={handleSubmit}>
           <div className="text-center">
             <label className="text-xl font-semibold" htmlFor="form-name">
-              What's your child's name?
+              What&aposs your child&aposs name?
             </label>
             <input
               id="form-name"
@@ -169,7 +169,7 @@ export default function Home() {
               required
             />
             <label className="mt-2 text-xl font-semibold" htmlFor="age-and-gender">
-              What's their age and gender?
+              What&aposs their age and gender?
             </label>
             <div className="flex items-center mb-6 mt-2">
               <input
@@ -190,7 +190,7 @@ export default function Home() {
               </select>
             </div>
             <label className="text-xl font-semibold" htmlFor="form-setting">
-              What's the setting for this bedtime story?
+              What&aposs the setting for this bedtime story?
             </label>
             <input
               id="form-setting"
@@ -216,7 +216,7 @@ export default function Home() {
             </select>
           </div>
           <button type="submit" className="w-full py-4 px-6 text-base font-medium text-gray-900 rounded-full bg-lime-500 transition-opacity hover:opacity-90" disabled={loading}>
-            {loading ? buttonText + '.'.repeat(dots) : buttonText}
+            {loading ? buttonText + &apos.&apos.repeat(dots) : buttonText}
           </button>
         </form>
         {result !== null && (
