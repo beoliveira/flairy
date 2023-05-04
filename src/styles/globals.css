@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #10151b;
+  color: white;
+}
+
+/* Select all inputs and selects */
+/* input,
+select {
+  color: black;
+} */
+
+/* Set the color of the selected option text to black */
+option {
+  color: black;
+}
+
+#story-area {
+  white-space: pre-wrap;
+}

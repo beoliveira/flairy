@@ -1,0 +1,15 @@
+.button {
+    background-color: #80ff44;
+    color: #0c100c;
+    padding: 24px 32px;
+    border-radius: 58px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    transition: .3s;
+    align-self: flex-start;
+}
+
+.button:hover {
+    opacity: .5;
+}
